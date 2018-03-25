@@ -40,6 +40,7 @@ void delete_beginning() {
   }
 }
 void length() {
+	c=1;
   struct node *tempu = (struct node *)malloc(sizeof(node));
   tempu = head;
   if (head == NULL) cout << "list is empty" << endl;
@@ -51,12 +52,12 @@ void length() {
   // cout<<"length  of list is \t"<<c<<endl;
 }
 void check_palindrome() {
-  int n, mid, flag = 0;
+  int n, mid, l,r,flag=0;
   struct node *tempu = (struct node *)malloc(sizeof(node));
   tempu = head;
   length();
   n = c;
-  int arr[n];
+  int arr[100];
   if (c % 2 == 0)
     mid = c / 2;
   else
@@ -65,12 +66,15 @@ void check_palindrome() {
     arr[i] = tempu->data;
     tempu = tempu->next;
   }
-
-  for (int i = 0; i < n / 2; i++) {
-    if (arr[i] != arr[mid]) {
+  l=0; r=n-1;
+  while(r>l){
+    if (arr[l] != arr[r]) {
       flag = 1;
       break;
     }
+	l++;
+	r--;
+	
   }
   if (flag == 0)
     cout << "list is palindrome" << endl;
