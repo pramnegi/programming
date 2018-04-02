@@ -1,7 +1,11 @@
 #include <iostream>
 #include <string.h>
 using namespace std;
-
+/*objective: to calculate all distinct possible permutations of a string
+approach: recursion
+input: 1. no of test cases
+	2. string
+*/
 void swp(char *a, char *b)
 {
 	char temp;
