@@ -1,5 +1,9 @@
 #include<iostream>
 using namespace std;
+/*objective: to calculate subset of a given set with sum of elements equal to given sum
+approach: recursion
+input: 1. size 2. sum 3. array elements
+*/
 bool func(int arr[],int n, int sum)
 {
 	if(sum==0)
