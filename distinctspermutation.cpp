@@ -6,45 +6,35 @@ approach: recursion
 input: 1. no of test cases
 	2. string
 */
-void swp(char *a, char *b)
-{
-	char temp;
-	temp = *a;
+void swp(char *a, char *b) {
+	char temp = *a;
 	*a = *b;
 	*b= temp;
 }
 
 
-int flag=0;
-void print(string s, int l, int r)
-{
-int i;
-if (l == r)
-	cout<<s<<endl;
-else
-{
-	for (i = l; i <= r; i++)
-	{
-	    for(int j=l;j<i;j++)
-        {
+int flag=0; // this flag is global, avoid global or static variables
+void print(string s, int l, int r) {
+	if (l == r) {
+		cout<<s<<endl;
+		return;
+	}
+	for (int i = l; i <= r; i++) {
+	    for(int j=l;j<i;j++) {
             if(s[i]==s[j])
                 flag=1;
             flag=0;
         }
-	    if(flag==0)
-	    {
-		swp(&(s[l]), &(s[i]));
-		print(s, l+1, r);
-		swp(&(s[l]), &(s[i]));
+	    if(flag==0) {
+			swp(&(s[l]), &(s[i]));
+			print(s, l+1, r);
+			swp(&(s[l]), &(s[i]));
 	    }
-
 	}
 }
-}
 
 
-int main()
-{
+int main() {
 	int t;
 	string s;
 	cin>>t;
